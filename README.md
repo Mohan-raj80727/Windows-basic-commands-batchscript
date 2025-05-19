@@ -72,14 +72,31 @@ move "Mylab\*.*" "Backup"
 ## Exercise 2: Advanced Batch Scripting
 Create a batch script named "BackupScript.bat" that creates a backup of files with the ".docx" extension from the "Documents" folder to a new folder named "DocBackup" on the desktop.
 
+~~~bash
+@echo off
+REM BackupScript.bat - Copies all .docx files from Documents to Desktop\DocBackup
 
+REM Define source and destination paths
+set "source=%USERPROFILE%\C:\User\admin\Mylab"
+set "destination=%USERPROFILE%\C:\User\admin\DocBackup"
 
+REM Create the destination folder if it doesn't exist
+if not exist "%destination%" (
+    mkdir "%destination%"
+)
 
+REM Copy all .docx files
+copy "%source%\*.docx" "%destination%"
 
+echo Backup completed successfully.
+pause
+
+~~~
 
 
 ## OUTPUT
 
+![image](https://github.com/user-attachments/assets/e0e9eb01-6811-4851-baae-f5dc38203978)
 
 
 
